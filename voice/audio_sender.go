@@ -147,5 +147,7 @@ func (s *defaultAudioSender) handleErr(err error) {
 }
 
 func (s *defaultAudioSender) Close() {
-	s.cancelFunc()
+	if s.cancelFunc != nil {
+		s.cancelFunc()
+	}
 }
